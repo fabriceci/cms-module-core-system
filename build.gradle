@@ -1,0 +1,12 @@
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+dependencies {
+    compile project(':model')
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
