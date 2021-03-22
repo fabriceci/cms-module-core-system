@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.cache2k.Cache;
-import org.cache2k.jmx.CacheInfoMXBean;
+import org.cache2k.operation.CacheControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -71,8 +71,7 @@ public class AdminBackinfoController {
         for (String cacheName : cacheManager.getCacheNames()) {
             Cache cache = (Cache) cacheManager.getCache(cacheName).getNativeCache();
             // pour info recupérable comme cela --> cache.asMap();
-            CacheInfoMXBean statistics = cache.getStatistics();
-            totalEntry += statistics.getSize();
+            totalEntry += CacheControl.of(cache).getSize();
         }
         model.put("cache_total", cacheManager.getCacheNames().size());
         model.put("cache_total_entry", totalEntry);
@@ -126,10 +125,9 @@ public class AdminBackinfoController {
         for (String cacheName : cacheManager.getCacheNames()) {
 
             Cache cache = (Cache) cacheManager.getCache(cacheName).getNativeCache();
-            CacheInfoMXBean statistics = cache.getStatistics();
 
-            long capacity = statistics.getCapacityLimit();
-            long count = statistics.getSize();
+            long capacity = CacheControl.of(cache).getEntryCapacity();
+            long count = CacheControl.of(cache).getSize();
             float usage = (count * 100) / (float)capacity;
 
             row = Json.createObjectBuilder();

@@ -38,8 +38,17 @@ repositories {
 
 }
 
+git {
+    implementation 'https://github.com/fabriceci/cms-model.git', {
+        authGroup 'main'
+        //    commit "62ca151c5feda37ad841cd5592f146211f330bb9"
+        keepUpdated false
+    }
+}
+
 dependencies {
-    api 'com.github.fabriceci:cms-model:master-SNAPSHOT'
+   //  api 'com.github.fabriceci:cms-model:master-SNAPSHOT'
+    implementation group: 'org.cache2k', name: 'cache2k-jmx', version: '2.0.0.Final'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
