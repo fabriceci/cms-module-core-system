@@ -48,7 +48,6 @@ git {
 
 dependencies {
    //  api 'com.github.fabriceci:cms-model:master-SNAPSHOT'
-    implementation group: 'org.cache2k', name: 'cache2k-jmx', version: '2.0.0.Final'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
