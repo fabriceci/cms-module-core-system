@@ -38,16 +38,23 @@ repositories {
 
 }
 
-git {
-    implementation 'https://github.com/fabriceci/cms-model.git', {
-        authGroup 'main'
-        //    commit "62ca151c5feda37ad841cd5592f146211f330bb9"
-        keepUpdated false
+if(project.hasProperty('dev')) {
+    git {
+        implementation 'https://github.com/fabriceci/cms-model.git', {
+            authGroup 'main'
+            if (project.hasProperty('core-model-commit')) {
+                commit project.property("core-model-commit") as String
+            }
+            keepUpdated false
+        }
     }
 }
 
 dependencies {
-   //  api 'com.github.fabriceci:cms-model:master-SNAPSHOT'
+    if(!project.hasProperty('dev')){
+        api 'com.github.fabriceci:cms-model:master-SNAPSHOT'
+    }
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
