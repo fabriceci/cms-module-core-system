@@ -49,9 +49,9 @@ git {
 }
 
 dependencies {
-    if(!project.hasProperty('dev')){
-        api 'com.github.fabriceci:cms-model:master-SNAPSHOT'
-    }
+    //if(!project.hasProperty('dev')){
+    //    api 'com.github.fabriceci:cms-model:master-SNAPSHOT'
+    //}
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
