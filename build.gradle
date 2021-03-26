@@ -39,14 +39,12 @@ repositories {
 }
 
 git {
-    if(project.hasProperty('dev')) {
-        implementation 'https://github.com/fabriceci/cms-model.git', {
-            authGroup 'main'
-            if (project.hasProperty('core-model-commit')) {
-                commit project.property("core-model-commit") as String
-            }
-            keepUpdated false
+    implementation 'https://github.com/fabriceci/cms-model.git', {
+        authGroup 'main'
+        if (project.hasProperty('core-model-commit')) {
+            commit project.property("core-model-commit") as String
         }
+        keepUpdated false
     }
 }
 
