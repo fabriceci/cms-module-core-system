@@ -39,12 +39,9 @@ public class AdminBackinfoController {
     // 1,23 mb par 1000 adminContent
     private final static String VIEWPATH = "admin/backinfo/";
 
-    @Autowired
-    private IAppParamService paramService;
-    @Autowired
-    private CacheManager cacheManager;
-    @Autowired
-    private IMailer mailer;
+    @Autowired private IAppParamService paramService;
+    @Autowired private CacheManager cacheManager;
+    @Autowired private IMailer mailer;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(ModelMap model, @ModelAttribute("redirectMessage") RedirectMessage redirectMessage) {
@@ -152,6 +149,7 @@ public class AdminBackinfoController {
         return Json.createObjectBuilder().add("data", data).build().toString();
     }
 
+    /*
     @RequestMapping(value = "/email", method = RequestMethod.POST)
     public String config(String email){
         if(!StringUtils.isEmpty(email)){
@@ -164,6 +162,7 @@ public class AdminBackinfoController {
         }
         return "redirect:/admin/backinfo";
     }
+     */
 
     @PostMapping(value="/addParam")
     public String addParam(String name){
