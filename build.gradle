@@ -39,7 +39,7 @@ repositories {
 }
 
 git {
-    implementation 'https://github.com/fabriceci/cms-model.git', {
+    implementation 'https://github.com/fabriceci/cms-core.git', {
         authGroup 'main'
         keepUpdated false
     }
