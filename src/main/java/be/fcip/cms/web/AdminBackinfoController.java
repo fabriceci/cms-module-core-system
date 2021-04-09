@@ -9,7 +9,6 @@ import be.fcip.cms.util.CmsFileUtils;
 import be.fcip.cms.util.CmsUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.cache2k.Cache;
 import org.cache2k.operation.CacheControl;
 import org.springframework.beans.factory.annotation.Autowired;
